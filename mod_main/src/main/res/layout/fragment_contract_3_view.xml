@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data></data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@drawable/drawable_cc_bg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dp_20">
+
+
+            <TextView
+                android:id="@+id/tv_kontak"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Kontak darurat-1"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/ll_kontak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dp_16"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_23"
+                android:background="@drawable/contract_edit_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_kontak">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_status_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_13">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="status"
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_status_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/_040404"
+                        android:textStyle="bold"
+                        android:layout_marginRight="@dimen/dp_20"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_arrow_1"/>
+
+                    <ImageView
+                        android:id="@+id/iv_arrow_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_12"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:src="@mipmap/icon_contract_right_arrow"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#D1EBE5"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_13"
+                    android:layout_marginTop="@dimen/dp_13">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="Nama "
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_concat"
+                        android:layout_width="@dimen/dp_18"
+                        android:layout_height="@dimen/dp_18"
+                        android:src="@mipmap/icon_contract_concat"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.sum.framework.weights.ClearEditText
+                        android:id="@+id/et_name"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="right"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:textColor="@color/_040404"
+                        android:textColorHint="#AEBFB8"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginRight="@dimen/dp_16"
+                        app:layout_constraintLeft_toRightOf="@+id/tv_name"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_concat"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#D1EBE5"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:layout_marginBottom="@dimen/dp_13">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="Telepon "
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <com.sum.framework.weights.ClearEditText
+                        android:id="@+id/et_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="right"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:textColor="@color/_040404"
+                        android:textColorHint="#AEBFB8"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold"
+                        android:inputType="number"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_kontak_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Kontak darurat-2"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/ll_kontak" />
+
+            <LinearLayout
+                android:id="@+id/ll_kontak_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/dp_16"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_23"
+                android:background="@drawable/contract_edit_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_kontak_2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_status_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_13">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="status"
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_status_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/_040404"
+                        android:textStyle="bold"
+                        android:layout_marginRight="@dimen/dp_20"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_arrow_2"/>
+
+
+                    <ImageView
+                        android:id="@+id/iv_arrow_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_12"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:src="@mipmap/icon_contract_right_arrow"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#D1EBE5"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp_13"
+                    android:layout_marginTop="@dimen/dp_13">
+
+                    <TextView
+                        android:id="@+id/tv_name_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="Nama "
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_concat_2"
+                        android:layout_width="@dimen/dp_18"
+                        android:layout_height="@dimen/dp_18"
+                        android:src="@mipmap/icon_contract_concat"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.sum.framework.weights.ClearEditText
+                        android:id="@+id/et_name_2"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="right"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:textColor="@color/_040404"
+                        android:textColorHint="#AEBFB8"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:lines="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginRight="@dimen/dp_16"
+                        app:layout_constraintLeft_toRightOf="@+id/tv_name_2"
+                        app:layout_constraintRight_toLeftOf="@+id/iv_concat_2"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#D1EBE5"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:layout_marginBottom="@dimen/dp_13">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="Telepon "
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <com.sum.framework.weights.ClearEditText
+                        android:id="@+id/et_alamat_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="right"
+                        android:paddingHorizontal="@dimen/dp_12"
+                        android:textColor="@color/_040404"
+                        android:textColorHint="#AEBFB8"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold"
+                        android:inputType="number"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/tv_renzheng"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginTop="@dimen/dp_40"
+                android:background="@drawable/contract_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_kontak_2">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_17"
+                    android:src="@mipmap/icon_ajukan"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《Perjanjian privasi 》"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/_040404"
+                android:layout_marginTop="@dimen/dp_30"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_renzheng"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

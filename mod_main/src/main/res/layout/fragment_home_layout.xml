@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/_040404"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/_e5e5e5"
+            android:textSize="@dimen/sp_28"
+            android:textStyle="bold"
+            android:text="@string/app_name"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_25"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_pay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            app:layout_constraintTop_toBottomOf="@+id/tv_app_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_home_top"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_maksimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maksimal kouta"
+                android:textSize="@dimen/sp_12"
+                android:textColor="#4C534F"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_marginLeft="@dimen/dp_30"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_kouta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_36"
+                android:textStyle="bold"
+                android:includeFontPadding="false"
+                android:text="@string/maksimal_kouta"
+                app:layout_constraintTop_toBottomOf="@+id/tv_maksimal"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_maksimal"/>
+
+            <TextView
+                android:id="@+id/tv_jangka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jangka waktu"
+                android:textSize="@dimen/sp_12"
+                android:textColor="#4C534F"
+                android:layout_marginTop="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_30"
+                app:layout_constraintTop_toBottomOf="@+id/tv_kouta"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_waktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120 Hari"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/_040404"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginBottom="@dimen/dp_25"
+                app:layout_constraintTop_toBottomOf="@+id/tv_jangka"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/ll_suku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="@dimen/dp_30"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_suku"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Suku bunga"
+                    android:textSize="@dimen/sp_12"
+                    android:textColor="#4C534F"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_kouta"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_bunga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.05% Per hari"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="#4C534F"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_25"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_jangka"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            </LinearLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_renzheng"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_46"
+            android:text="Dapatkan kouta"
+            android:textColor="@color/_040404"
+            android:textStyle="bold"
+            android:background="@drawable/kouta_selector"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_40"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_pay" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:background="@drawable/drawable_back"
+            app:layout_constraintTop_toBottomOf="@+id/tv_renzheng">
+
+
+            <TextView
+                android:id="@+id/tv_ad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hanya tiga langkah"
+                android:layout_marginTop="@dimen/dp_25"
+                android:textColor="#fdfdfd"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="5"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dp_20"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ad">
+
+                <LinearLayout
+                    android:id="@+id/ll_home_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_26"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_56"
+                        android:layout_height="@dimen/dp_56"
+                        android:src="@mipmap/icon1"
+                        android:padding="@dimen/dp_5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="Verifikasi"
+                        android:textColor="@color/_e5e5e5"
+                        android:textSize="@dimen/sp_12"/>
+
+                </LinearLayout>
+                
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="@dimen/dp_10"
+                    android:layout_height="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_31"
+                    android:layout_marginRight="@dimen/dp_31"
+                    app:layout_constraintLeft_toRightOf="@+id/ll_home_1"
+                    app:layout_constraintRight_toLeftOf="@+id/ll_home_2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@mipmap/icon_home_arrow"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_home_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_56"
+                        android:layout_height="@dimen/dp_56"
+                        android:src="@mipmap/icon1"
+                        android:padding="@dimen/dp_5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="Verifikasi"
+                        android:textColor="@color/_e5e5e5"
+                        android:textSize="@dimen/sp_12"/>
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="@dimen/dp_10"
+                    android:layout_height="@dimen/dp_10"
+                    android:src="@mipmap/icon_home_arrow"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/ll_home_2"
+                    app:layout_constraintRight_toLeftOf="@+id/ll_home_3"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_home_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_56"
+                        android:layout_height="@dimen/dp_56"
+                        android:src="@mipmap/icon3"
+                        android:padding="@dimen/dp_5"
+                        android:layout_gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="Pencairan segera"
+                        android:textColor="@color/_e5e5e5"
+                        android:textSize="@dimen/sp_12"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_ad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_19"
+                app:layout_constraintTop_toBottomOf="@+id/cl_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@mipmap/icon_ad_back"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@mipmap/dapatkan_skor_kredit"/>
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/dp_0"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                        app:layout_constraintRight_toRightOf="parent"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        android:scaleType="fitXY"-->
+<!--                        android:src="@mipmap/icon_ad_back"/>-->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

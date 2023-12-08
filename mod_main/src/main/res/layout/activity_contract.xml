@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/_272C2C">
+
+        <com.sum.common.view.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:middleText="@string/setting_privacy_policy"
+            android:fitsSystemWindows="true"
+            app:showDividerLine="false" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <FrameLayout
+                android:id="@+id/fl_cc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_page">
+
+                <FrameLayout
+                    android:id="@+id/fl_cc_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/tv_cc_1"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/drawable_contract"
+                        android:gravity="center"
+                        android:text="Rp500"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/_999999"/>
+
+                    <com.sum.main.ui.contract.ContractView
+                        android:layout_width="@dimen/dp_14"
+                        android:layout_height="@dimen/dp_10"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_58"
+                        android:background="@drawable/drawable_line_info" />
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_cc_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_70"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/fl_cc_1"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/tv_cc_2"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/drawable_contract"
+                        android:gravity="center"
+                        android:text="Rp500"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/_999999"/>
+
+                    <com.sum.main.ui.contract.ContractView
+                        android:layout_width="@dimen/dp_14"
+                        android:layout_height="@dimen/dp_10"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_58"
+                        android:background="@drawable/drawable_line_info" />
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_cc_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_140"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/fl_cc_1"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/tv_cc_3"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/drawable_contract"
+                        android:gravity="center"
+                        android:text="Rp500"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/_999999"/>
+
+                    <com.sum.main.ui.contract.ContractView
+                        android:layout_width="@dimen/dp_14"
+                        android:layout_height="@dimen/dp_10"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_58"
+                        android:background="@drawable/drawable_line_info" />
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_cc_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_210"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/fl_cc_1"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/tv_cc_4"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/drawable_contract"
+                        android:gravity="center"
+                        android:text="Rp500"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/_999999"/>
+
+                    <com.sum.main.ui.contract.ContractView
+                        android:layout_width="@dimen/dp_14"
+                        android:layout_height="@dimen/dp_10"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_58"
+                        android:background="@drawable/drawable_line_info" />
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fl_cc_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_280"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/fl_cc_1"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/tv_cc_5"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_30"
+                        android:background="@drawable/drawable_contract"
+                        android:gravity="center"
+                        android:text="Rp500"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/_999999"/>
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0"
+                android:layout_marginTop="@dimen/dp_24"
+                android:background="@drawable/drawable_cc_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fl_cc">
+
+
+                <FrameLayout
+                    android:id="@+id/fl_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <TextView
+                android:id="@+id/tv_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:text="/5"
+                android:textColor="@color/_e5e5e5"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+    </data>
+</layout>

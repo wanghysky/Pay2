@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk rootProject.android.compileSdk
+
+    defaultConfig {
+        minSdk rootProject.android.minSdk
+        targetSdk rootProject.android.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        //ARouter
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.depsLibs.coreKtx
+    api rootProject.depsLibs.appcompat
+    api rootProject.depsLibs.material
+    api rootProject.depsLibs.constraintlayout
+
+    api rootProject.depsLibs.refreshLayout
+    api rootProject.depsLibs.refreshHeader
+    api rootProject.depsLibs.refreshFooter
+
+    api rootProject.depsLibs.aroutreApi
+    kapt rootProject.depsLibs.arouterCompiler
+    api 'com.github.weidongjian:androidWheelView:1.0.0'
+
+    api project(path: ':lib_framework')
+    api project(path: ':lib_banner')
+}

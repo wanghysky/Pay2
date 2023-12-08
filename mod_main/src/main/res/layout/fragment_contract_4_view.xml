@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data></data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@drawable/drawable_cc_bg"
+        android:paddingBottom="@dimen/dp_30">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dp_20">
+
+
+            <TextView
+                android:id="@+id/tv_kontak"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_26"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Silahkan upload KTP"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/ll_kontak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/contract_edit_bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_kontak">
+
+                
+                <FrameLayout
+                    android:id="@+id/fl_ktp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_138"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:layout_marginHorizontal="@dimen/dp_30">
+
+                    <FrameLayout
+                        android:id="@+id/fl_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="@dimen/dp_46"
+                                android:layout_height="@dimen/dp_46"
+                                android:src="@mipmap/icon_photo_kpt" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Foto KTP"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:textSize="@dimen/sp_12"
+                                android:textColor="@color/_040404"/>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl_success"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:layout_width="@dimen/dp_46"
+                                android:layout_height="@dimen/dp_46"
+                                android:src="@mipmap/icon_photo_suc" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Foto KTP"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:textSize="@dimen/sp_12"
+                                android:textColor="@color/_040404"/>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </FrameLayout>
+                
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_13">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="Mohon konfirmasi informasi berikut"
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/dp_34"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_13"
+                    android:layout_marginTop="@dimen/dp_13">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="Nama Lengkap "
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+                    <TextView
+                        android:id="@+id/et_name"
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="right"
+                        android:hint="Harap konfirmasi nama depan dan belakang Anda"
+                        android:textColor="#0F1511"
+                        android:textColorHint="#AEBFB8"
+                        android:textSize="@dimen/sp_14"
+                        android:layout_marginLeft="@dimen/dp_14"
+                        app:layout_constraintLeft_toRightOf="@+id/tv_name"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#D1EBE5"
+                    android:layout_marginHorizontal="@dimen/dp_16"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_13"
+                    android:layout_marginBottom="@dimen/dp_13"
+                    android:layout_marginHorizontal="@dimen/dp_16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_20"
+                        android:text="Nomor ID"
+                        android:textColor="@color/_040404"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/et_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="right"
+                        android:textColor="#0F1511"
+                        android:textColorHint="#AEBFB8"
+                        android:textSize="@dimen/sp_14"
+                        android:hint="Harap konfirmasi nomor ID Anda"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:background="#D1EBE5"
+                    android:layout_marginBottom="@dimen/dp_30"
+                    android:layout_marginHorizontal="@dimen/dp_16"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/tv_renzheng"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginTop="@dimen/dp_40"
+                android:background="@drawable/contract_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_kontak">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_17"
+                    android:src="@mipmap/icon_ajukan"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《Perjanjian privasi 》"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/_040404"
+                android:layout_marginTop="@dimen/dp_30"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_renzheng" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

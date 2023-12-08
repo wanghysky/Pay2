@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data></data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/dp_30"
+        tools:background="@drawable/drawable_cc_bg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dp_20">
+
+            <TextView
+                android:id="@+id/tv_pekerjaan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Pekerjaan"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/fl_pekerjaan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/contract_edit_bg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_pekerjaan">
+
+                <TextView
+                    android:id="@+id/et_pekerjaan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/dp_32"
+                    android:background="@color/transparent"
+                    android:paddingHorizontal="@dimen/dp_12"
+                    android:hint="Silahkan pilih"
+                    android:textColor="@color/_040404"
+                    android:textColorHint="#AEBFB8"
+                    android:textSize="@dimen/text_size_16" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_pekerjaan_toggle"
+                    android:layout_width="@dimen/dp_12"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/dp_14"
+                    android:src="@mipmap/icon_contract_arrow"
+                    app:layout_constraintBottom_toBottomOf="@+id/et_pekerjaan"
+                    app:layout_constraintRight_toRightOf="@+id/et_pekerjaan"
+                    app:layout_constraintTop_toTopOf="@+id/et_pekerjaan" />
+
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_bulanan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Penghasilan bulanan"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/fl_pekerjaan" />
+
+            <FrameLayout
+                android:id="@+id/fl_bulanan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/contract_edit_bg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bulanan">
+
+                <TextView
+                    android:id="@+id/et_bulanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/dp_32"
+                    android:background="@color/transparent"
+                    android:paddingHorizontal="@dimen/dp_12"
+                    android:hint="Silahkan pilih"
+                    android:textColor="@color/_040404"
+                    android:textColorHint="#AEBFB8"
+                    android:textSize="@dimen/text_size_16" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_bulanan_arrow"
+                    android:layout_width="@dimen/dp_12"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/dp_14"
+                    android:src="@mipmap/icon_contract_arrow"
+                    app:layout_constraintBottom_toBottomOf="@+id/et_bulanan"
+                    app:layout_constraintRight_toRightOf="@+id/et_bulanan"
+                    app:layout_constraintTop_toTopOf="@+id/et_bulanan" />
+
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_perusahaan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Nama perusahaan"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/fl_bulanan" />
+
+            <com.sum.framework.weights.ClearEditText
+                android:id="@+id/et_tv_perusahaan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_80"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/contract_edit_bg"
+                android:gravity="left"
+                android:hint="Silakan masukkan"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:paddingVertical="@dimen/dp_8"
+                android:textColor="@color/_040404"
+                android:textColorHint="#AEBFB8"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_perusahaan" />
+
+            <TextView
+                android:id="@+id/tv_telepon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Telepon"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/et_tv_perusahaan" />
+
+            <com.sum.framework.weights.ClearEditText
+                android:id="@+id/et_telepon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_80"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/contract_edit_bg"
+                android:gravity="left"
+                android:hint="Silakan masukkan"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:paddingVertical="@dimen/dp_8"
+                android:textColor="@color/_040404"
+                android:textColorHint="#AEBFB8"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_telepon" />
+
+            <TextView
+                android:id="@+id/tv_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_30"
+                android:text="Alamat"
+                android:textColor="@color/_040404"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/et_telepon" />
+
+            <com.sum.framework.weights.ClearEditText
+                android:id="@+id/et_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_80"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/contract_edit_bg"
+                android:gravity="left"
+                android:hint="Silakan masukkan"
+                android:paddingHorizontal="@dimen/dp_12"
+                android:paddingVertical="@dimen/dp_8"
+                android:textColor="@color/_040404"
+                android:textColorHint="#AEBFB8"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_alamat" />
+
+
+            <FrameLayout
+                android:id="@+id/tv_renzheng"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginTop="@dimen/dp_40"
+                android:background="@drawable/contract_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_alamat">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_17"
+                    android:src="@mipmap/icon_ajukan"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《Perjanjian privasi 》"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/_040404"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginBottom="@dimen/dp_30"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_renzheng"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
