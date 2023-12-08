@@ -44,11 +44,13 @@
     <color name="_4D040404">#4D040404</color>
     <color name="_999999">#999999</color>
     <color name="_A8A7A6">#A8A7A6</color>
-
+    <color name="_9B9B9B">#9B9B9B</color>
     <color name="line_color">#dce0e4</color>
 
     <color name="dialog_bg">#ffffff</color>
     <color name="dialog_bg_press">#f0f0f0</color>
     <color name="dialog_cancel">#323233</color>
     <color name="dialog_confirm">#007ac9</color>
+    <color name="_27271F">#27271F</color>
+    <color name="_fff55323">#fff55323</color>
 </resources>

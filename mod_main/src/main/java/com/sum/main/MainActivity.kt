@@ -16,6 +16,7 @@ import com.sum.framework.utils.AppExit
 import com.sum.framework.utils.StatusBarSettingHelper
 import com.sum.main.databinding.ActivityMainBinding
 import com.sum.main.ui.home.HomeFragment2
+import com.sum.main.ui.order.OrderFragment
 
 /**
  *
@@ -40,20 +41,22 @@ class MainActivity : BaseDataBindActivity<ActivityMainBinding>() {
         StatusBarSettingHelper.setStatusBarTranslucent(this)
         StatusBarSettingHelper.statusBarLightMode(this@MainActivity, true)
         selectHome()
-        mBinding.ivHome.onClick {
+        mBinding.flTabHome.onClick {
             selectHome()
         }
-        mBinding.ivMe.onClick {
+        mBinding.flTabMe.onClick {
             selectMe()
         }
-        mBinding.ivList.onClick {
+        mBinding.flList.onClick {
             selectMList()
         }
 
         val fragment = HomeFragment2()
-        supportFragmentManager.beginTransaction().add(R.id.fl_home, fragment, "HomeFragment2").commitAllowingStateLoss()
-//        val fragment2 = MeFragment()
-//        supportFragmentManager.beginTransaction().add(R.id.fl_home, fragment, HomeFragment.TAG).commitAllowingStateLoss()
+        supportFragmentManager.beginTransaction().add(R.id.fl_home, fragment, "HomeFragment2")
+            .commitAllowingStateLoss()
+        val fragmentOrder = OrderFragment()
+        supportFragmentManager.beginTransaction().add(R.id.fl_me, fragmentOrder, "OrderFragment")
+            .commitAllowingStateLoss()
 
     }
 
