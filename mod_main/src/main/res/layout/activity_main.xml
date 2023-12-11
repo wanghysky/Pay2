@@ -45,7 +45,7 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/icon_home_bottom"
+        android:background="@mipmap/icon_home_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="horizontal">
 

@@ -48,13 +48,14 @@
             android:layout_centerHorizontal="true"/>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/iv_service"
+            android:layout_width="@dimen/dp_100"
             android:layout_height="@dimen/dp_70"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/dp_2"
-            android:layout_marginBottom="@dimen/dp_9"
-            android:layout_marginRight="@dimen/dp_10"
-            android:src="@mipmap/icon_call"/>
+            android:src="@mipmap/icon_call"
+            android:scaleType="fitXY"
+            android:fitsSystemWindows="true"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </RelativeLayout>
 
@@ -66,6 +67,20 @@
         android:text="Mohon posisikan wajah anda di dalam bingkai gambar dengan benar kemudian ambil gambar"
         android:textSize="@dimen/sp_14"
         android:textColor="@color/_e5e5e5"/>
+
+    <TextView
+        android:id="@+id/tv_privasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="《Perjanjian privasi 》"
+        android:textSize="@dimen/sp_12"
+        android:textColor="@color/_F2EE90"
+        android:layout_marginTop="@dimen/dp_155"
+        android:layout_marginBottom="@dimen/dp_30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -79,6 +94,7 @@
             android:layout_width="@dimen/dp_64"
             android:layout_height="@dimen/dp_64"
             android:src="@mipmap/icon_take_photo" />
+
     </RelativeLayout>
 
 

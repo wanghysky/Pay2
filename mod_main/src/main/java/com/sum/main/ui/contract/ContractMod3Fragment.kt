@@ -13,9 +13,11 @@ import com.sum.common.dialog.XDialog
 import com.sum.common.dialog.base.BindViewHolder
 import com.sum.common.dialog.listener.OnBindViewListener
 import com.sum.common.dialog.listener.OnViewClickListener
+import com.sum.common.provider.MainServiceProvider
 import com.sum.framework.base.BaseMvvmFragment
 import com.sum.framework.ext.onClick
 import com.sum.framework.ext.textChangeFlow
+import com.sum.framework.utils.FormatUtil
 import com.sum.main.R
 import com.sum.main.databinding.FragmentContract3ViewBinding
 import com.sum.main.ui.contract.viewmodel.ContractViewModel
@@ -44,7 +46,12 @@ class ContractMod3Fragment : BaseMvvmFragment<FragmentContract3ViewBinding, Cont
 
     private var clickType = 0
 
+    private var startTime = ""
+    private var endTime = ""
+    private var sceneType = "CONTACT"
+
     override fun initView(view: View, savedInstanceState: Bundle?) {
+        startTime = FormatUtil.distime(System.currentTimeMillis())
         mBinding?.clStatus1?.onClick {
             showMessageDialog(requireActivity(), 1) {
                 mBinding?.tvStatus1?.text = it?.let { it1 -> listStatus[it1] }
@@ -57,7 +64,13 @@ class ContractMod3Fragment : BaseMvvmFragment<FragmentContract3ViewBinding, Cont
                 updateLoginState()
             }
         }
-
+        mBinding?.tvPrivasi?.onClick {
+            MainServiceProvider.toArticleDetail(
+                context = requireContext(),
+                url = "http://106.14.161.98/contract/privacyagreement.html",
+                title = "Perjanjian Privasi"
+            )
+        }
         mViewModel.contractList.observe(this) { it ->
             val type = clickType
             val list = it.first
@@ -125,7 +138,10 @@ class ContractMod3Fragment : BaseMvvmFragment<FragmentContract3ViewBinding, Cont
             data.put("contacts", jsonArr.toString())
 
 
-            mViewModel.saveUserInfo(data, "contacts")
+            mViewModel.saveUserInfo(data, "contacts"){
+                endTime = FormatUtil.distime(System.currentTimeMillis())
+                mViewModel.addRiskControlTracking(startTime, endTime, sceneType)
+            }
         }
 //        for (i in 18..60) {
 //            listYear.add("$i")

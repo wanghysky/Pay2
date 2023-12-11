@@ -339,13 +339,16 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_privasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="《Perjanjian privasi 》"
                 android:textSize="@dimen/sp_12"
                 android:textColor="@color/_040404"
+                app:layout_constraintVertical_bias="0"
                 android:layout_marginTop="@dimen/dp_30"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginBottom="@dimen/dp_30"
+                app:layout_constraintBottom_toBottomOf="parent"                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_renzheng"/>
 
