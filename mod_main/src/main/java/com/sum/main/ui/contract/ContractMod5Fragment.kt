@@ -1,9 +1,11 @@
 package com.sum.main.ui.contract
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import com.sum.common.dialog.XDialog
@@ -11,11 +13,15 @@ import com.sum.common.dialog.base.BindViewHolder
 import com.sum.common.dialog.listener.OnBindViewListener
 import com.sum.common.dialog.listener.OnViewClickListener
 import com.sum.common.model.BankList
+import com.sum.common.provider.MainServiceProvider
 import com.sum.framework.base.BaseMvvmFragment
 import com.sum.framework.ext.onClick
 import com.sum.framework.ext.textChangeFlow
+import com.sum.framework.utils.FormatUtil
 import com.sum.main.R
 import com.sum.main.databinding.FragmentContract5ViewBinding
+import com.sum.main.ui.CameraActivity
+import com.sum.main.ui.PackageActivity
 import com.sum.main.ui.contract.viewmodel.ContractViewModel
 import com.weigan.loopview.LoopView
 import com.weigan.loopview.OnItemSelectedListener
@@ -24,6 +30,7 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlin.random.Random
 
 /**
  *
@@ -37,7 +44,19 @@ class ContractMod5Fragment : BaseMvvmFragment<FragmentContract5ViewBinding, Cont
 
     private var selectPosition = -1
 
+    private var startTime = ""
+    private var endTime = ""
+    private var sceneType = "BANK"
+
     override fun initView(view: View, savedInstanceState: Bundle?) {
+        startTime = FormatUtil.distime(System.currentTimeMillis())
+        mBinding?.tvPrivasi?.onClick{
+            MainServiceProvider.toArticleDetail(
+                context = requireContext(),
+                url = "http://106.14.161.98/contract/privacyagreement.html",
+                title = "Perjanjian Privasi"
+            )
+        }
         mBinding?.flLahir?.onClick {
             showMessageDialog(requireActivity(), 1) {
                 if (it != null) {
@@ -63,7 +82,25 @@ class ContractMod5Fragment : BaseMvvmFragment<FragmentContract5ViewBinding, Cont
             data.put("bankName", listWork[selectPosition].bankName)
             data.put("bankCard", companyName)
 
-            mViewModel.saveUserInfo(data, "bankCard")
+            mViewModel.saveUserInfo(data, "bankCard"){
+                endTime = FormatUtil.distime(System.currentTimeMillis())
+                mViewModel.addRiskControlTracking(startTime, endTime, sceneType)
+            }
+        }
+
+        mViewModel.contractStep.observe(this) {
+            when (it?.step ?: "") {
+                "baseInfo",
+                "jobInfo",
+                "contacts",
+                "identify",
+                "bankCard",-> {
+
+                }
+                else -> {
+                    showEndDialog(requireActivity())
+                }
+            }
         }
 
         mViewModel.reqBankList( listWork)
@@ -181,5 +218,39 @@ class ContractMod5Fragment : BaseMvvmFragment<FragmentContract5ViewBinding, Cont
         loopView.setItems(newList)
         //设置初始位置
         loopView.setInitPosition(list.size / 2)
+    }
+
+    private fun showEndDialog(activity: FragmentActivity) {
+        XDialog.Builder(activity.supportFragmentManager)
+            .setLayoutRes(R.layout.show_end_dialog)
+            .setScreenWidthAspect(activity, 0.9f)
+            .setTag("PermissionDialog")
+            .setDimAmount(0.6f)
+            .setCancelableOutside(false)
+            .setGravity(Gravity.CENTER)
+            .addOnClickListener(com.sum.common.R.id.btn_right, com.sum.common.R.id.iv_dialog_close)
+            .setOnViewClickListener(object : OnViewClickListener {
+                override fun onViewClick(
+                    viewHolder: BindViewHolder?,
+                    view: View?,
+                    xDialog: XDialog?
+                ) {
+                    when (view?.id) {
+                        com.sum.common.R.id.btn_right -> {
+                            requireActivity().startActivity(Intent(requireActivity(), PackageActivity::class.java))
+                            requireActivity().finish()
+                            xDialog?.dismiss()
+                        }
+
+                        com.sum.common.R.id.iv_dialog_close -> {
+                            requireActivity().startActivity(Intent(requireActivity(), PackageActivity::class.java))
+                            requireActivity().finish()
+                            xDialog?.dismiss()
+                        }
+                    }
+                }
+            })
+            .create()
+            .show()
     }
 }

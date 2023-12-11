@@ -3,6 +3,7 @@ package com.sum.network.api
 import com.sum.common.model.AwardAmount
 import com.sum.common.model.BankList
 import com.sum.common.model.Check
+import com.sum.common.model.Complaint
 import com.sum.common.model.ContractNextStep
 import com.sum.common.model.DistList
 import com.sum.common.model.LoginRequest
@@ -12,8 +13,10 @@ import com.sum.common.model.Positive
 import com.sum.common.model.Register
 import com.sum.common.model.ResetPassword
 import com.sum.common.model.SaveUserInfo
+import com.sum.common.model.Service
 import com.sum.common.model.SmsCount
 import com.sum.common.model.SmsReq
+import com.sum.common.model.Track
 import com.sum.common.model.UserInfo
 import com.sum.network.response.BaseResponse
 import okhttp3.MultipartBody
@@ -90,7 +93,7 @@ interface PayApi {
 
     @POST("api/auth/save-user-info")
     suspend fun saveUserInfo(
-       @Body body: SaveUserInfo
+        @Body body: SaveUserInfo
     ): BaseResponse<DistList>?
 
     @POST("api/auth/check")
@@ -98,6 +101,20 @@ interface PayApi {
     suspend fun check(
         @Field("authType") authType: String
     ): BaseResponse<Check>?
+
+    @POST("api/common/addRiskControlTracking")
+    suspend fun addRiskControlTracking(
+        @Body body: Track
+    ): BaseResponse<Any>?
+
+    @POST("api/common/customerServiceInfo")
+    suspend fun customerServiceInfo(
+    ): BaseResponse<Service>?
+
+    @POST("api/user/complaint")
+    suspend fun complaint(
+        @Body complaintRes: Complaint
+    ): BaseResponse<Any>?
 
     @Multipart
     @POST("api/common/oss-upload-positive2")

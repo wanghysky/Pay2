@@ -10,9 +10,11 @@ import com.sum.common.dialog.XDialog
 import com.sum.common.dialog.base.BindViewHolder
 import com.sum.common.dialog.listener.OnBindViewListener
 import com.sum.common.dialog.listener.OnViewClickListener
+import com.sum.common.provider.MainServiceProvider
 import com.sum.framework.base.BaseMvvmFragment
 import com.sum.framework.ext.onClick
 import com.sum.framework.toast.TipsToast
+import com.sum.framework.utils.FormatUtil
 import com.sum.main.R
 import com.sum.main.databinding.FragmentContract4ViewBinding
 import com.sum.main.ui.contract.viewmodel.ContractViewModel
@@ -30,7 +32,11 @@ class ContractMod4Fragment : BaseMvvmFragment<FragmentContract4ViewBinding, Cont
     private val listWork = arrayListOf<String>()
     private val listInCom = arrayListOf<String>()
 
+    private var startTime = ""
+    private var endTime = ""
+    private var sceneType = "LIVENESS"
     override fun initView(view: View, savedInstanceState: Bundle?) {
+        startTime = FormatUtil.distime(System.currentTimeMillis())
 //        mBinding.
         mBinding?.flKtp?.onClick {
             mViewModel.check {
@@ -41,7 +47,13 @@ class ContractMod4Fragment : BaseMvvmFragment<FragmentContract4ViewBinding, Cont
                     TipsToast.showTips("Lo sentimos. Aún no es la fecha del evento")
                 }
             }
-
+        }
+        mBinding?.tvPrivasi?.onClick {
+            MainServiceProvider.toArticleDetail(
+                context = requireContext(),
+                url = "http://106.14.161.98/contract/privacyagreement.html",
+                title = "Perjanjian Privasi"
+            )
         }
         mViewModel.positive.observe(this) {
             it?.apply {
@@ -75,7 +87,10 @@ class ContractMod4Fragment : BaseMvvmFragment<FragmentContract4ViewBinding, Cont
             data.put("realName", name)
             data.put("identityImg", livenessId)
 
-            mViewModel.saveUserInfo(data, "identify")
+            mViewModel.saveUserInfo(data, "identify"){
+                endTime = FormatUtil.distime(System.currentTimeMillis())
+                mViewModel.addRiskControlTracking(startTime, endTime, sceneType)
+            }
         }
 
     }

@@ -1,6 +1,8 @@
 package com.sum.main.ui.contract
 
 import android.os.Bundle
+import android.text.format.DateFormat
+import android.text.format.DateUtils
 import android.view.Gravity
 import android.view.View
 import android.widget.EditText
@@ -10,9 +12,11 @@ import com.sum.common.dialog.XDialog
 import com.sum.common.dialog.base.BindViewHolder
 import com.sum.common.dialog.listener.OnBindViewListener
 import com.sum.common.dialog.listener.OnViewClickListener
+import com.sum.common.provider.MainServiceProvider
 import com.sum.framework.base.BaseMvvmFragment
 import com.sum.framework.ext.onClick
 import com.sum.framework.ext.textChangeFlow
+import com.sum.framework.utils.FormatUtil
 import com.sum.main.R
 import com.sum.main.databinding.FragmentContract1ViewBinding
 import com.sum.main.ui.contract.viewmodel.ContractViewModel
@@ -36,7 +40,19 @@ class ContractMod1Fragment : BaseMvvmFragment<FragmentContract1ViewBinding, Cont
     private val listEdu = arrayListOf<String>()
     private val listWed = arrayListOf<String>()
 
+    private var startTime = ""
+    private var endTime = ""
+    private var sceneType = "INFORMATION"
+
     override fun initView(view: View, savedInstanceState: Bundle?) {
+        startTime = FormatUtil.distime(System.currentTimeMillis())
+        mBinding?.tvPrivasi?.onClick{
+            MainServiceProvider.toArticleDetail(
+                context = requireContext(),
+                url = "http://106.14.161.98/contract/privacyagreement.html",
+                title = "Perjanjian Privasi"
+            )
+        }
         mBinding?.flLahir?.onClick {
             showMessageDialog(requireActivity(), 1) {
                 mBinding?.etLahir?.text = it?.let { it1 -> listYear[it1] }
@@ -70,7 +86,10 @@ class ContractMod1Fragment : BaseMvvmFragment<FragmentContract1ViewBinding, Cont
             data.put("education", edu)
             data.put("marital", wed)
             data.put("birthYear", year)
-            mViewModel.saveUserInfo(data, "baseInfo")
+            mViewModel.saveUserInfo(data, "baseInfo") {
+                endTime = FormatUtil.distime(System.currentTimeMillis())
+                mViewModel.addRiskControlTracking(startTime, endTime, sceneType)
+            }
         }
         for (i in 18..60) {
             listYear.add("$i")

@@ -12,7 +12,7 @@
         <shape android:shape="rectangle">
             <stroke android:color="@color/black"
                 android:width="@dimen/dp_4"/>
-            <solid android:color="@color/_F2EE90" />
+            <solid android:color="@color/transparent" />
             <corners android:radius="@dimen/dp_17" />
         </shape>
     </item>

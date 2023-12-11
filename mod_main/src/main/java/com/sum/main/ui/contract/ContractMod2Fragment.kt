@@ -10,9 +10,11 @@ import com.sum.common.dialog.XDialog
 import com.sum.common.dialog.base.BindViewHolder
 import com.sum.common.dialog.listener.OnBindViewListener
 import com.sum.common.dialog.listener.OnViewClickListener
+import com.sum.common.provider.MainServiceProvider
 import com.sum.framework.base.BaseMvvmFragment
 import com.sum.framework.ext.onClick
 import com.sum.framework.ext.textChangeFlow
+import com.sum.framework.utils.FormatUtil
 import com.sum.main.R
 import com.sum.main.databinding.FragmentContract2ViewBinding
 import com.sum.main.ui.contract.viewmodel.ContractViewModel
@@ -35,7 +37,12 @@ class ContractMod2Fragment : BaseMvvmFragment<FragmentContract2ViewBinding, Cont
     private val listWork = arrayListOf<String>()
     private val listInCom = arrayListOf<String>()
 
+    private var startTime = ""
+    private var endTime = ""
+    private var sceneType = "WORK"
+
     override fun initView(view: View, savedInstanceState: Bundle?) {
+        startTime = FormatUtil.distime(System.currentTimeMillis())
         mBinding?.flPekerjaan?.onClick {
             showMessageDialog(requireActivity(), 1) {
                 mBinding?.etPekerjaan?.text = it?.let { it1 -> listWork[it1] }
@@ -47,6 +54,13 @@ class ContractMod2Fragment : BaseMvvmFragment<FragmentContract2ViewBinding, Cont
                 mBinding?.etBulanan?.text = it?.let { it1 -> listInCom[it1] }
                 updateLoginState()
             }
+        }
+        mBinding?.tvPrivasi?.onClick {
+            MainServiceProvider.toArticleDetail(
+                context = requireContext(),
+                url = "http://106.14.161.98/contract/privacyagreement.html",
+                title = "Perjanjian Privasi"
+            )
         }
         mBinding?.tvRenzheng?.onClick {
 //
@@ -62,7 +76,10 @@ class ContractMod2Fragment : BaseMvvmFragment<FragmentContract2ViewBinding, Cont
             data.put("companyName", companyName)
             data.put("companyPhone", tel)
             data.put("companyAddr", address)
-            mViewModel.saveUserInfo(data, "jobInfo")
+            mViewModel.saveUserInfo(data, "jobInfo"){
+                endTime = FormatUtil.distime(System.currentTimeMillis())
+                mViewModel.addRiskControlTracking(startTime, endTime, sceneType)
+            }
         }
 //        for (i in 18..60) {
 //            listYear.add("$i")

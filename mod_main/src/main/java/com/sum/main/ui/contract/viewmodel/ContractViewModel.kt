@@ -3,10 +3,13 @@ package com.sum.main.ui.contract.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.sum.common.model.AwardAmount
 import com.sum.common.model.BankList
+import com.sum.common.model.Complaint
 import com.sum.common.model.Contract
 import com.sum.common.model.ContractNextStep
 import com.sum.common.model.Positive
 import com.sum.common.model.SaveUserInfo
+import com.sum.common.model.Track
+import com.sum.framework.toast.TipsToast
 import com.sum.network.callback.IApiErrorCallback
 import com.sum.network.manager.ApiManager
 import com.sum.network.viewmodel.BaseViewModel
@@ -25,6 +28,8 @@ class ContractViewModel : BaseViewModel() {
     val positive = MutableLiveData<Positive?>()
     val awardAmountList = MutableLiveData<MutableList<AwardAmount>?>()
     val contractList = MutableLiveData<Pair<MutableList<Contract>?, Int>>()
+
+    val servicePhone = MutableLiveData<String?>()
 
     /**
      * 获取分类信息
@@ -90,7 +95,7 @@ class ContractViewModel : BaseViewModel() {
         }
     }
 
-    fun saveUserInfo(type: Map<String, String>, step: String) {
+    fun saveUserInfo(type: Map<String, String>, step: String, next : () -> Unit) {
         launchUIWithResult(responseBlock = {
             ApiManager.apis.saveUserInfo(SaveUserInfo().apply {
                 this.data = type
@@ -102,6 +107,7 @@ class ContractViewModel : BaseViewModel() {
 
             }
         }) { it ->
+            next()
             getCategoryData()
         }
     }
@@ -116,6 +122,50 @@ class ContractViewModel : BaseViewModel() {
             }
         }) { it ->
             next(it?.checkResult ?: false)
+        }
+    }
+
+    fun addRiskControlTracking(startTime: String, endTime: String, sceneType: String) {
+        launchUIWithResult(responseBlock = {
+            ApiManager.apis.addRiskControlTracking(Track().apply {
+                this.startTime = startTime
+                this.endTime = endTime
+                this.sceneType = sceneType
+            })
+        }, errorCall = object : IApiErrorCallback {
+            override fun onError(code: Int?, error: String?) {
+                super.onError(code, error)
+            }
+        }) { it ->
+        }
+    }
+
+    fun customerServiceInfo() {
+        launchUIWithResult(responseBlock = {
+            ApiManager.apis.customerServiceInfo()
+        }, errorCall = object : IApiErrorCallback {
+            override fun onError(code: Int?, error: String?) {
+                super.onError(code, error)
+
+            }
+        }) { it ->
+            servicePhone.value = it?.phone
+        }
+    }
+
+    fun reqComplaint(title: String, content: String) {
+        launchUIWithResult(responseBlock = {
+            ApiManager.apis.complaint(Complaint().apply {
+                this.title = title
+                this.content = content
+            })
+        }, errorCall = object : IApiErrorCallback {
+            override fun onError(code: Int?, error: String?) {
+                super.onError(code, error)
+
+            }
+        }) { it ->
+            TipsToast.showTips("Operasi yang sukses")
         }
     }
 

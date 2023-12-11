@@ -48,6 +48,8 @@
 
                     <FrameLayout
                         android:id="@+id/fl_empty"
+                        android:visibility="gone"
+                        android:background="@mipmap/icon_identity_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -78,7 +80,8 @@
                         android:id="@+id/fl_success"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:visibility="gone">
+                        android:background="@drawable/icon_camera_bg"
+                        android:visibility="visible">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -230,13 +233,15 @@
             </FrameLayout>
 
             <TextView
+                android:id="@+id/tv_privasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="《Perjanjian privasi 》"
                 android:textSize="@dimen/sp_12"
                 android:textColor="@color/_040404"
-                android:layout_marginTop="@dimen/dp_30"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginTop="@dimen/dp_30"                android:layout_marginBottom="@dimen/dp_30"
+                app:layout_constraintBottom_toBottomOf="parent"                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_renzheng" />
 
